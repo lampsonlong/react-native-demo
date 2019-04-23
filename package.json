@@ -1,0 +1,43 @@
+{
+	"name": "react_native_demo_1",
+	"version": "0.0.1",
+	"description": "demo11111",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest",
+		"lint": "eslint app --fix",
+		"format": "find app -name '*.js' | xargs prettier --write --single-quote"
+	},
+	"dependencies": {
+		"@ant-design/react-native": "^3.1.5",
+		"prop-types": "^15.7.2",
+		"react": "^16.8.4",
+		"react-intl": "^2.8.0",
+		"react-native": "0.59.4",
+		"react-native-gesture-handler": "^1.1.0",
+		"react-native-vector-icons": "^6.4.2",
+		"react-navigation": "^3.8.1",
+		"react-redux": "^7.0.2",
+		"redux": "^4.0.1",
+		"redux-thunk": "^2.3.0",
+		"rxjs": "^6.4.0"
+	},
+	"devDependencies": {
+		"@babel/core": "7.4.3",
+		"@babel/runtime": "7.4.3",
+		"babel-jest": "24.7.1",
+		"babel-plugin-import": "^1.11.0",
+		"jest": "24.7.1",
+		"metro-react-native-babel-preset": "0.53.1",
+		"react-test-renderer": "16.8.3",
+		"eslint": "^4.19.1",
+		"eslint-config-airbnb": "^16.1.0",
+		"eslint-plugin-import": "^2.11.0",
+		"eslint-plugin-jsx-a11y": "^6.0.3",
+		"eslint-plugin-react": "^7.7.0"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
