@@ -1,6 +1,6 @@
 # react-native-demo1
 * UI框架
-  > rn-mobile-ant-design
+  > [rn-mobile-ant-design](https://rn.mobile.ant.design/docs/react/introduce-cn)
 * STATE控制
   > react-redux、redux-thunk
 * UIDebug
