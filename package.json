@@ -26,16 +26,15 @@
 	"devDependencies": {
 		"@babel/core": "7.4.3",
 		"@babel/runtime": "7.4.3",
+		"babel-eslint": "^10.0.1",
 		"babel-jest": "24.7.1",
 		"babel-plugin-import": "^1.11.0",
+		"eslint": "^4.19.1",
+		"eslint-config-airbnb": "^16.1.0",
 		"jest": "24.7.1",
 		"metro-react-native-babel-preset": "0.53.1",
 		"react-test-renderer": "16.8.3",
-		"eslint": "^4.19.1",
-		"eslint-config-airbnb": "^16.1.0",
-		"eslint-plugin-import": "^2.11.0",
-		"eslint-plugin-jsx-a11y": "^6.0.3",
-		"eslint-plugin-react": "^7.7.0"
+		"remote-redux-devtools": "^0.5.16"
 	},
 	"jest": {
 		"preset": "react-native"

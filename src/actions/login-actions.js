@@ -1,8 +1,8 @@
-'use strict';
 import * as types from '../constants/login-types';// 导入事件类型,用来做分配给各个事件
+
 // 模拟用户信息
-let user = {
-    name: 'testuser',
+const initUser = {
+    name: 'testUser',
     age: 24,
 };
 
@@ -10,35 +10,34 @@ let user = {
 export function login() {
     console.log('登录方法');
     alert('login()');
-    return dispatch => {
+    return (dispatch) => {
         dispatch(isLogining()); // 正在执行登录请求
 
         // 模拟用户登录
-        let result = fetch('https://www.baidu.com/')
+        const result = fetch('https://www.baidu.com/')
             .then((res) => {
-                dispatch(loginSuccess(true, user)); // 登录请求完成
+                dispatch(loginSuccess(true, initUser)); // 登录请求完成
             }).catch((e) => {
                 dispatch(loginError(false)); // 登录请求出错
-            })
-    }
+            });
+    };
 }
 
 function isLogining() {
     return {
         type: types.LOGIN_IN_DOING
-    }
+    };
 }
 
 function loginSuccess(isSuccess, user) {
     return {
         type: types.LOGIN_IN_DONE,
-        user: user,
-    }
+        user,
+    };
 }
 
-function loginError(isSuccess) {
-    console.log('error');
+function loginError() {
     return {
         type: types.LOGIN_IN_ERROR,
-    }
+    };
 }

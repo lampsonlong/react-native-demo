@@ -1,10 +1,12 @@
-'use strict';
-import { createStore, applyMiddleware } from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from '../reducers/index';
+import {composeWithDevTools} from 'remote-redux-devtools';
+import rootReducer from '../reducers';
 
-const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
-
-export function configureStore(initialState) {
-    return createStoreWithMiddleware(rootReducer, initialState);
+export default function configureStore(initialState) {
+    return createStore(
+        rootReducer,
+        initialState,
+        composeWithDevTools(applyMiddleware(thunkMiddleware))
+    );
 }

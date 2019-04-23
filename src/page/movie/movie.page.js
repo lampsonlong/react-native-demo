@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
 
-type Props = {};
-export class MoviePage extends Component<Props> {
+export class MoviePage extends Component {
     render() {
         return (
-            <View >
+            <View>
                 <Text>Welcome11 to React Native!</Text>
                 <Text>To get started, eaaadit App.js</Text>
                 <Text>instructions</Text>

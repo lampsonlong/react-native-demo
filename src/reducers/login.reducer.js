@@ -1,4 +1,3 @@
-'use strict';
 import * as types from '../constants/login-types'; // 导入事件类别,用来做事件类别的判断
 // 初始状态
 const initialState = {
@@ -8,7 +7,7 @@ const initialState = {
 };
 
 // 不同类别的事件使用switch对应处理过程
-export default function loginIn(state=initialState, action) {
+export default function loginIn(state = initialState, action) {
     let newState = {};
 
     switch (action.type) {

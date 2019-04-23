@@ -1,4 +1,3 @@
-'use strict';
 import { combineReducers } from 'redux';
 import loginIn from './login.reducer'; // 导入登录的redux处理过程
 import counter from './counter.reducer';
