@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 import {Text, StyleSheet} from 'react-native';
 import {Button, Flex} from '@ant-design/react-native';
 
-export default class CounterComponent extends Component {
-    static propTypes = {
-        decrementFn: PropTypes.func.isRequired,
-        incrementFn: PropTypes.func.isRequired,
-    };
+const propTypes = {
+    counterActions: PropTypes.object,
+    counter: PropTypes.object.isRequired
+};
 
+class CounterComponent extends Component {
     render() {
-        const {decrementFn, incrementFn, counter} = this.props;
+        const {counterActions, counter} = this.props;
         return (
             <Flex>
                 <Flex.Item>
-                    <Button onPress={decrementFn}>减</Button>
+                    <Button onPress={counterActions.decrement}>减</Button>
                 </Flex.Item>
                 <Flex.Item>
-                    <Text style={styles.counterText}>{counter}</Text>
+                    <Text style={styles.counterText}>{counter.count}</Text>
                 </Flex.Item>
                 <Flex.Item>
-                    <Button onPress={incrementFn}>加</Button>
+                    <Button onPress={counterActions.increment}>加</Button>
                 </Flex.Item>
             </Flex>
         );
@@ -32,3 +32,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     }
 });
+
+CounterComponent.propTypes = propTypes;
+
+export default CounterComponent;
