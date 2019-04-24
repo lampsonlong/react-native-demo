@@ -11,7 +11,7 @@ import {HomeModal} from './src/modal/home.modal';
 // import {Provider} from "@ant-design/react-native";
 // import zh_CN from '@ant-design/react-native/lib/locale-provider/zh_CN';
 import configureStore from './src/store/ConfigureStore';
-import rootSaga from './src/segas/index.saga';
+import rootSaga from './src/sagas/index.saga';
 
 const HomePageStack = createStackNavigator({
     Home: {screen: HomePage},
