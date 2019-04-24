@@ -2,7 +2,7 @@
 * UI框架
   > [rn-mobile-ant-design](https://rn.mobile.ant.design/docs/react/introduce-cn)
 * STATE控制
-  > react-redux、redux-thunk
+  > react-redux、~~redux-thunk~~ -> redux-sagas
 * UIDebug
   > http://localhost:8081/debugger-ui/ 
 * ReduxDebug
