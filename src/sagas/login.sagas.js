@@ -6,8 +6,7 @@ import * as types from '../constants/login-types';
 export function* login(params) {
     console.log('login request...', params);
     yield put(isLogining());
-
-    const res = yield call(RequestUtil.get, 'http://dev-cex-api.dcex.world//spot/user/dictionary/marketList');
+    const res = yield call(RequestUtil.get, 'http://dev-cex-api.dcex.world/spot/user/dictionary/marketList', params);
     console.log('login response... ', res);
 
     if (res && res.code === '0') {

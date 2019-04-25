@@ -1,25 +1,43 @@
 /**
- *
- * Copyright 2015-present reading
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
+ * get请求
+ * @param url
+ * @param params
  */
+const get = (url, params) => {
+    // 当参数为空的时候就过滤掉，不传递给接口
+    const urlParams = [];
+    if (params) {
+        for (const field of Object.keys(params)) {
+            if (params[field] === '' || params[field] === null) {
+                delete params[field];
+            } else {
+                urlParams.push(field + '=' + params[field]);
+            }
+        }
+    }
 
-const get = (url, params) => requestMethod(url, 'get', params);
+    // 添加urlParams
+    if (urlParams.length) {
+        url = url + '?' + urlParams.join('&');
+    }
 
+    return requestMethod(url, 'get');
+};
+
+/**
+ * post请求
+ * @param url
+ * @param params
+ */
 const post = (url, params) => requestMethod(url, 'post', params);
 
+/**
+ * 处理请求实体
+ * @param url
+ * @param method
+ * @param params
+ * @returns {Promise<any>}
+ */
 const requestMethod = (url, method, params) => {
     // 当参数为空的时候就过滤掉，不传递给接口
     if (params) {
@@ -42,11 +60,7 @@ const requestMethod = (url, method, params) => {
         })
             .then((response) => {
                 // TODO 根据后端rest-api可扩展共通处理
-                if (response.ok) {
-                    isOk = true;
-                } else {
-                    isOk = false;
-                }
+                isOk = !!response.ok;
                 return response.json();
             })
             .then((responseData) => {
@@ -63,6 +77,7 @@ const requestMethod = (url, method, params) => {
     });
 };
 
+// 导出
 const requestUtil = {
     get,
     post,
