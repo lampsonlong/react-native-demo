@@ -38,15 +38,11 @@ class HomePage extends Component {
 
     /*-----Lifecycle Part-----*/
     componentDidMount() {
-        // // 页面进入时获取数据
-        // const { loginActions } = this.props;
-        // console.log(loginActions);
-        // loginActions.login();
     }
 
     /*-----Methods Part-----*/
-    test = () => {
-        // 更新数据
+    onLoginBtnClick = () => {
+        // 执行登录操作
         const { loginActions } = this.props;
         console.log(loginActions);
         loginActions.login();
@@ -89,7 +85,7 @@ class HomePage extends Component {
                 </Text>
                 <Button
                     loading={loginIn.loginBtnLoading}
-                    onPress={this.test}
+                    onPress={this.onLoginBtnClick}
                 >
                     登录!!!!!
                 </Button>
