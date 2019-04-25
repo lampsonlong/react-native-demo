@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import {Button} from '@ant-design/react-native';
+import {Button, Switch, WhiteSpace} from '@ant-design/react-native';
 
 import CounterComponent from '../../component/counter.component';
 
@@ -29,13 +29,19 @@ class HomePage extends Component {
     };
 
     /*-----Constructor Part-----*/
+    constructor(props) {
+        super(props);
+        this.state = {
+            checked: false,
+        };
+    }
 
     /*-----Lifecycle Part-----*/
     componentDidMount() {
-        // 页面进入时获取数据
-        const { loginActions } = this.props;
-        console.log(loginActions);
-        loginActions.login();
+        // // 页面进入时获取数据
+        // const { loginActions } = this.props;
+        // console.log(loginActions);
+        // loginActions.login();
     }
 
     /*-----Methods Part-----*/
@@ -44,6 +50,12 @@ class HomePage extends Component {
         const { loginActions } = this.props;
         console.log(loginActions);
         loginActions.login();
+    };
+
+    onSwitchChange = (value) => {
+        this.setState({
+            checked: value,
+        });
     };
 
     /*-----Render Part-----*/
@@ -73,7 +85,7 @@ class HomePage extends Component {
                     Go to Modal
                 </Button>
 
-                <Text>状态: {this.props.status}
+                <Text>状态: {loginIn.status}
                 </Text>
                 <Button
                     loading={loginIn.loginBtnLoading}
@@ -82,6 +94,17 @@ class HomePage extends Component {
                     登录!!!!!
                 </Button>
                 <CounterComponent {...this.props} />
+                <WhiteSpace />
+                <WhiteSpace />
+                <WhiteSpace />
+                <WhiteSpace />
+                <Switch
+                    checked={this.state.checked}
+                    onChange={this.onSwitchChange}
+                    disabled={!!this.state.checked}
+                />
+                <WhiteSpace />
+                <Text>{this.state.checked ? '自闭中，并且无法关闭' : '开启自闭'}</Text>
             </View>
         );
     }
