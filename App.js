@@ -6,6 +6,7 @@ import {DetailsScreen} from './src/page/home-tab/detail.page';
 import {SettingsPage} from './src/page/settings-tab/settings.page';
 import HomePage from './src/page/home-tab/home.page';
 import {ProfilePage} from './src/page/settings-tab/profile.page';
+import LoginPage from './src/page/authentication/login.page';
 import {HomeModal} from './src/modal/home.modal';
 
 // import {Provider} from "@ant-design/react-native";
@@ -14,6 +15,7 @@ import configureStore from './src/store/ConfigureStore';
 import rootSaga from './src/sagas/index.saga';
 
 const HomePageStack = createStackNavigator({
+    Login: LoginPage,
     Home: {screen: HomePage},
     Details: DetailsScreen,
     MoviePage,

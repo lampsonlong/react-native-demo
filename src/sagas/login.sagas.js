@@ -3,11 +3,11 @@ import RequestUtil from '../utils/request-util';
 import {isLogining, loginSuccess, loginError} from '../actions/login-actions';
 import * as types from '../constants/login-types';
 
-export function* login() {
-    console.log('login request...');
+export function* login(params) {
+    console.log('login request...', params);
     yield put(isLogining());
 
-    const res = yield call(RequestUtil.request, 'http://dev-cex-api.dcex.world//spot/user/dictionary/marketList', 'get');
+    const res = yield call(RequestUtil.get, 'http://dev-cex-api.dcex.world//spot/user/dictionary/marketList');
     console.log('login response... ', res);
 
     if (res && res.code === '0') {
@@ -19,7 +19,7 @@ export function* login() {
 
 export function* watchLogin() {
     while (true) {
-        yield take(types.LOGIN_IN_REQUEST);
-        yield fork(login);
+        const {params} = yield take(types.LOGIN_IN_REQUEST);
+        yield fork(login, params);
     }
 }

@@ -16,17 +16,32 @@
  *
  */
 
-const requestUtil = (url, method, body) => {
+const get = (url, params) => requestMethod(url, 'get', params);
+
+const post = (url, params) => requestMethod(url, 'post', params);
+
+const requestMethod = (url, method, params) => {
+    // 当参数为空的时候就过滤掉，不传递给接口
+    if (params) {
+        for (const field of Object.keys(params)) {
+            if (params[field] === '' || params[field] === null) {
+                delete params[field];
+            }
+        }
+    }
+
     let isOk;
     return new Promise((resolve, reject) => {
         fetch(url, {
             method,
             headers: {
+                Accept: 'application/json',
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            body
+            body: JSON.stringify(params)
         })
             .then((response) => {
+                // TODO 根据后端rest-api可扩展共通处理
                 if (response.ok) {
                     isOk = true;
                 } else {
@@ -35,6 +50,7 @@ const requestUtil = (url, method, body) => {
                 return response.json();
             })
             .then((responseData) => {
+                // TODO 根据后端rest-api可扩展共通处理
                 if (isOk) {
                     resolve(responseData);
                 } else {
@@ -47,6 +63,9 @@ const requestUtil = (url, method, body) => {
     });
 };
 
-export default {
-    request: requestUtil
+const requestUtil = {
+    get,
+    post,
 };
+
+export default requestUtil;
