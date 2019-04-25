@@ -7,3 +7,5 @@
   > react-redux、redux-sagas
 * Debug工具
   > [安装React-Native-Debugger](https://github.com/jhen0409/react-native-debugger)
+* 本地存储
+  > 待更新
