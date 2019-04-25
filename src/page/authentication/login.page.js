@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import {Text, ScrollView} from 'react-native';
-import {Button, List, InputItem} from '@ant-design/react-native';
+import {Button, List, InputItem, WhiteSpace, WingBlank} from '@ant-design/react-native';
 
 import * as loginAction from '../../actions/login-actions';
 
@@ -40,7 +40,7 @@ class LoginPage extends Component {
     /*-----Methods Part-----*/
     onLoginBtnClick = () => {
         // 执行登录操作
-        const { loginActions } = this.props;
+        const {loginActions} = this.props;
         const params = {
             username: this.state.username,
             password: this.state.password,
@@ -57,47 +57,60 @@ class LoginPage extends Component {
     render() {
         const {loginIn} = this.props;
         return (
+
             <ScrollView
-                style={{ flex: 1 }}
+                style={{flex: 1, marginTop: 50}}
                 automaticallyAdjustContentInsets={false}
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
             >
-                <List renderHeader="登录">
-                    <InputItem
-                        clear
-                        error
-                        value={this.state.username}
-                        onChange={(username) => {
-                            this.setState({
-                                username,
-                            });
-                        }}
-                        extra="元"
-                        placeholder="用户名"
-                    />
-                    <InputItem
-                        type="password"
-                        clear
-                        error
-                        value={this.state.password}
-                        onChange={(password) => {
-                            this.setState({
-                                password,
-                            });
-                        }}
-                        extra="元"
-                        placeholder="密码"
-                    />
-                    <Button
-                        loading={loginIn.loginBtnLoading}
-                        onPress={this.onLoginBtnClick}
-                    >
-                        登录!!!!!
-                    </Button>
-                    <Text>状态: {loginIn.status}</Text>
-                </List>
+                <WingBlank>
+                    <List renderHeader="登录">
+                        <InputItem
+                            clear
+                            error
+                            value={this.state.username}
+                            onChange={(username) => {
+                                this.setState({
+                                    username,
+                                });
+                            }}
+                            placeholder="用户名"
+                        />
+                        <InputItem
+                            type="password"
+                            clear
+                            error
+                            value={this.state.password}
+                            onChange={(password) => {
+                                this.setState({
+                                    password,
+                                });
+                            }}
+                            placeholder="密码"
+                        />
+                        <WhiteSpace/>
+                        <WhiteSpace/>
+                        <Button
+                            loading={loginIn.loginBtnLoading}
+                            onPress={this.onLoginBtnClick}
+                        >
+                            登录!!!!!
+                        </Button>
+                        <WhiteSpace/>
+                        <WhiteSpace/>
+                        <Text>状态: {loginIn.status}</Text>
+                        <WhiteSpace/>
+                        <WhiteSpace/>
+                        <Button
+                            onPress={() => this.props.navigation.goBack()}
+                        >
+                            关闭
+                        </Button>
+                    </List>
+                </WingBlank>
             </ScrollView>
+
         );
     }
 }
@@ -105,7 +118,7 @@ class LoginPage extends Component {
 LoginPage.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
-    const { loginIn } = state;
+    const {loginIn} = state;
     return {
         loginIn,
     };

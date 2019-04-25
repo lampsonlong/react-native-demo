@@ -15,7 +15,6 @@ import configureStore from './src/store/ConfigureStore';
 import rootSaga from './src/sagas/index.saga';
 
 const HomePageStack = createStackNavigator({
-    Login: LoginPage,
     Home: {screen: HomePage},
     Details: DetailsScreen,
     MoviePage,
@@ -33,7 +32,8 @@ const HomePageStack = createStackNavigator({
 
 const HomeStack = createStackNavigator({
     Main: HomePageStack,
-    TestModal: HomeModal
+    HomeModal: HomeModal,
+    LoginModal: LoginPage
 }, {
     initialRouteName: 'Main',
     mode: 'modal',

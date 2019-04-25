@@ -7,7 +7,6 @@ import {Button, Switch, WhiteSpace} from '@ant-design/react-native';
 
 import CounterComponent from '../../component/counter.component';
 
-import * as loginAction from '../../actions/login-actions';
 import * as counterAction from '../../actions/counter-actions';
 
 const propTypes = {
@@ -41,13 +40,6 @@ class HomePage extends Component {
     }
 
     /*-----Methods Part-----*/
-    onLoginBtnClick = () => {
-        // 执行登录操作
-        const { loginActions } = this.props;
-        console.log(loginActions);
-        loginActions.login();
-    };
-
     onSwitchChange = (value) => {
         this.setState({
             checked: value,
@@ -72,26 +64,25 @@ class HomePage extends Component {
                 >
                     Go to Details
                 </Button>
-                <Text>MoviePage</Text>
+                <WhiteSpace />
+                <WhiteSpace />
                 <Button
-                    onPress={() => this.props.navigation.navigate('TestModal', {
+                    onPress={() => this.props.navigation.navigate('HomeModal', {
                         itemId: 0,
                     })}
                 >
                     Go to Modal
                 </Button>
-
+                <WhiteSpace />
+                <WhiteSpace />
+                <Button
+                    onPress={() => this.props.navigation.navigate('LoginModal')}
+                >
+                    Go to Login
+                </Button>
                 <Text>状态: {loginIn.status}
                 </Text>
-                <Button
-                    loading={loginIn.loginBtnLoading}
-                    onPress={this.onLoginBtnClick}
-                >
-                    登录!!!!!
-                </Button>
                 <CounterComponent {...this.props} />
-                <WhiteSpace />
-                <WhiteSpace />
                 <WhiteSpace />
                 <WhiteSpace />
                 <Switch
@@ -118,10 +109,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    const loginActions = bindActionCreators(loginAction, dispatch);
     const counterActions = bindActionCreators(counterAction, dispatch);
     return {
-        loginActions,
         counterActions
     };
 };
