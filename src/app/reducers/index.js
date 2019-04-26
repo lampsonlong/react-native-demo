@@ -1,9 +1,17 @@
 import { combineReducers } from 'redux';
-import loginIn from './login.reducer'; // 导入登录的redux处理过程
+import loginIn from './login.reducer';
 import counter from './counter.reducer';
+import language from './language.reducer';
 
-const rootReducer = combineReducers({ // 将所有的redux处理逻辑包装在一起
+/**
+ * 将所有的redux处理逻辑包装在一起
+ * @type {Reducer<any> | Reducer<any, AnyAction>}
+ */
+const rootReducer = combineReducers({
     loginIn,
     counter,
+    language,
 });
-export default rootReducer; // 导出,作为统一入口
+
+// 统一导出
+export default rootReducer;

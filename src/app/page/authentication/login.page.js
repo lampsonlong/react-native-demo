@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import {Text, ScrollView} from 'react-native';
 import {Button, List, InputItem, WhiteSpace, WingBlank} from '@ant-design/react-native';
+import I18n from '../../util/i18n.util';
 
 import * as loginAction from '../../actions/login.actions';
 
@@ -75,7 +76,7 @@ class LoginPage extends Component {
                                     username,
                                 });
                             }}
-                            placeholder="用户名"
+                            placeholder={I18n.t('login.usernamePH')}
                         />
                         <InputItem
                             type="password"
@@ -87,7 +88,7 @@ class LoginPage extends Component {
                                     password,
                                 });
                             }}
-                            placeholder="密码"
+                            placeholder={I18n.t('login.passwordPH')}
                         />
                         <WhiteSpace/>
                         <WhiteSpace/>
@@ -105,12 +106,11 @@ class LoginPage extends Component {
                         <Button
                             onPress={() => this.props.navigation.goBack()}
                         >
-                            关闭
+                            {I18n.t('button.close')}
                         </Button>
                     </List>
                 </WingBlank>
             </ScrollView>
-
         );
     }
 }
@@ -119,8 +119,10 @@ LoginPage.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
     const {loginIn} = state;
+    const {language} = state;
     return {
         loginIn,
+        language,
     };
 };
 

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import {Button, Switch, WhiteSpace} from '@ant-design/react-native';
+import I18n from '../../util/i18n.util';
 
 import CounterComponent from '../../component/counter.component';
 
@@ -36,7 +37,11 @@ class HomePage extends Component {
     }
 
     /*-----Lifecycle Part-----*/
+    componentWillMount() {
+    }
+
     componentDidMount() {
+
     }
 
     /*-----Methods Part-----*/
@@ -62,7 +67,7 @@ class HomePage extends Component {
                         itemId: 86,
                     })}
                 >
-                    Go to Details
+                    {I18n.t('detail')}
                 </Button>
                 <WhiteSpace />
                 <WhiteSpace />
@@ -102,16 +107,18 @@ HomePage.propTypes = propTypes;
 const mapStateToProps = (state) => {
     const { loginIn } = state;
     const { counter } = state;
+    const { language } = state;
     return {
         loginIn,
-        counter
+        counter,
+        language,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     const counterActions = bindActionCreators(counterAction, dispatch);
     return {
-        counterActions
+        counterActions,
     };
 };
 

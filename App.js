@@ -12,8 +12,8 @@ import HomePage from './src/app/page/home-tab/home.page';
 import LoginPage from './src/app/page/authentication/login.page';
 import DetailsPage from './src/app/page/home-tab/detail.page';
 import SettingsPage from './src/app/page/settings-tab/settings.page';
-import ProfilePage from './src/app/page/settings-tab/profile.page';
 import HomeModal from './src/app/modal/home.modal';
+import SwitchLanguagePage from './src/app/page/settings/switch-language.page';
 
 const HomePageStack = createStackNavigator({
     Home: {screen: HomePage},
@@ -42,7 +42,7 @@ const HomeStack = createStackNavigator({
 
 const SettingsStack = createStackNavigator({
     Settings: SettingsPage,
-    Profile: ProfilePage,
+    SwitchLanguage: SwitchLanguagePage,
 });
 
 const RootStack = createBottomTabNavigator({
