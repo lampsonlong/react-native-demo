@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 
-export class HomeModal extends React.Component {
+class HomeModal extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -14,3 +14,5 @@ export class HomeModal extends React.Component {
         );
     }
 }
+
+export default HomeModal;

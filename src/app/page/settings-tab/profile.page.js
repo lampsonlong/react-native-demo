@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Text, View} from 'react-native';
 
 
-export class ProfilePage extends React.Component {
+class ProfilePage extends React.Component {
     render() {
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -15,3 +15,5 @@ export class ProfilePage extends React.Component {
         );
     }
 }
+
+export default ProfilePage;

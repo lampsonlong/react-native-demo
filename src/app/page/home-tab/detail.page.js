@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 
-export class DetailsScreen extends React.Component {
+class DetailsPage extends React.Component {
     /* -----Data Part-----*/
     static navigationOptions = ({navigation, navigationOptions}) => ({
         // title: params ? params.otherParam : 'A Nested Details Screen',
@@ -9,7 +9,7 @@ export class DetailsScreen extends React.Component {
         headerRight: (
             <Button
                 onPress={
-                    // 这里的this不能用，只能用navigation调用执行函数
+                    // 这里不能用this，只能用navigation调用执行函数
                     navigation.getParam('increaseCount')
                 }
                 title="+1"
@@ -72,8 +72,9 @@ export class DetailsScreen extends React.Component {
                     title="Go to First Page!"
                     onPress={() => this.props.navigation.popToTop()}
                 />
-                {/* <HomePage /> */}
             </View>
         );
     }
 }
+
+export default DetailsPage;
