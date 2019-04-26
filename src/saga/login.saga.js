@@ -1,6 +1,6 @@
 import { put, take, call, fork } from 'redux-saga/effects';
-import RequestUtil from '../utils/request-util';
-import {isLogining, loginSuccess, loginError} from '../actions/login-actions';
+import RequestUtil from '../util/request.util';
+import {isLogining, loginSuccess, loginError} from '../actions/login.actions';
 import * as types from '../constants/login-types';
 
 export function* login(params) {

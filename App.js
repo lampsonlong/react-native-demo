@@ -1,7 +1,6 @@
 import {Provider} from 'react-redux';
 import React, {Component} from 'react';
 import {createStackNavigator, createAppContainer, createBottomTabNavigator} from 'react-navigation';
-import {MoviePage} from './src/page/movie/movie.page';
 import {DetailsScreen} from './src/page/home-tab/detail.page';
 import {SettingsPage} from './src/page/settings-tab/settings.page';
 import HomePage from './src/page/home-tab/home.page';
@@ -11,13 +10,12 @@ import {HomeModal} from './src/modal/home.modal';
 
 // import {Provider} from "@ant-design/react-native";
 // import zh_CN from '@ant-design/react-native/lib/locale-provider/zh_CN';
-import configureStore from './src/store/ConfigureStore';
-import rootSaga from './src/sagas/index.saga';
+import configureStore from './src/store/configure.store';
+import rootSaga from './src/saga/index.saga';
 
 const HomePageStack = createStackNavigator({
     Home: {screen: HomePage},
     Details: DetailsScreen,
-    MoviePage,
 }, {
     defaultNavigationOptions: {
         headerStyle: {

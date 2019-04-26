@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {Text, ScrollView} from 'react-native';
 import {Button, List, InputItem, WhiteSpace, WingBlank} from '@ant-design/react-native';
 
-import * as loginAction from '../../actions/login-actions';
+import * as loginAction from '../../actions/login.actions';
 
 const propTypes = {
     loginActions: PropTypes.object,

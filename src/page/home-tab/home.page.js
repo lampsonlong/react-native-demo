@@ -7,7 +7,7 @@ import {Button, Switch, WhiteSpace} from '@ant-design/react-native';
 
 import CounterComponent from '../../component/counter.component';
 
-import * as counterAction from '../../actions/counter-actions';
+import * as counterAction from '../../actions/counter.actions';
 
 const propTypes = {
     loginActions: PropTypes.object,
