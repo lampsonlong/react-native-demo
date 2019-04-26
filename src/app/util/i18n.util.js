@@ -10,9 +10,9 @@ I18n.translations = {
     zh
 };
 
-store.get('lang').then((lang) => {
-    I18n.locale = lang;
-});
+// store.get('lang').then((lang) => {
+//     I18n.locale = lang;
+// });
 
 console.log('I18n.locale:', I18n.locale);
 

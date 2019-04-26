@@ -42,7 +42,7 @@ class SwitchLanguagePage extends React.Component {
                                 checked={this.state.lang === 'zh'}
                                 onChange={(event) => {
                                     if (event.target.checked) {
-                                        this.setState({ lang: 'zh' });
+                                        this.setState({lang: 'zh'});
                                         languageActions.switchLanguage('zh');
                                     }
                                 }}
@@ -55,7 +55,7 @@ class SwitchLanguagePage extends React.Component {
                                 checked={this.state.lang === 'en'}
                                 onChange={(event) => {
                                     if (event.target.checked) {
-                                        this.setState({ lang: 'en' });
+                                        this.setState({lang: 'en'});
                                         languageActions.switchLanguage('en');
                                     }
                                 }}
@@ -73,7 +73,7 @@ class SwitchLanguagePage extends React.Component {
 SwitchLanguagePage.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
-    const { language } = state;
+    const {language} = state;
     return {
         language
     };

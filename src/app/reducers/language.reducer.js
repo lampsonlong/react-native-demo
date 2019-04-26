@@ -5,11 +5,10 @@ const initialState = {
 };
 
 export default function language(state = initialState, action) {
-    console.log('test:', action);
-    const {lang} = action;
     switch (action.type) {
         case 'SWITCH_LANGUAGE':
             // 更新i18n
+            const {lang} = action;
             I18n.setLanguage(lang);
 
             return {
