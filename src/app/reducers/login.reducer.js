@@ -1,4 +1,4 @@
-import * as types from '../constants/login-types'; // 导入事件类别,用来做事件类别的判断
+import * as types from '../const/login-types'; // 导入事件类别,用来做事件类别的判断
 // 初始状态
 const initialState = {
     status: '点击登录',

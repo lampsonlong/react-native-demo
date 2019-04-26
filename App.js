@@ -1,17 +1,17 @@
 import {Provider} from 'react-redux';
 import React, {Component} from 'react';
 import {createStackNavigator, createAppContainer, createBottomTabNavigator} from 'react-navigation';
-import {DetailsScreen} from './src/page/home-tab/detail.page';
-import {SettingsPage} from './src/page/settings-tab/settings.page';
-import HomePage from './src/page/home-tab/home.page';
-import {ProfilePage} from './src/page/settings-tab/profile.page';
-import LoginPage from './src/page/authentication/login.page';
-import {HomeModal} from './src/modal/home.modal';
+import {DetailsScreen} from './src/app/page/home-tab/detail.page';
+import {SettingsPage} from './src/app/page/settings-tab/settings.page';
+import HomePage from './src/app/page/home-tab/home.page';
+import {ProfilePage} from './src/app/page/settings-tab/profile.page';
+import LoginPage from './src/app/page/authentication/login.page';
+import {HomeModal} from './src/app/modal/home.modal';
 
 // import {Provider} from "@ant-design/react-native";
 // import zh_CN from '@ant-design/react-native/lib/locale-provider/zh_CN';
-import configureStore from './src/store/configure.store';
-import rootSaga from './src/saga/index.saga';
+import configureStore from './src/app/store/configure.store';
+import rootSaga from './src/app/saga/index.saga';
 
 const HomePageStack = createStackNavigator({
     Home: {screen: HomePage},

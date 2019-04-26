@@ -1,4 +1,4 @@
-import * as types from '../constants/counter-types';
+import * as types from '../const/counter-types';
 
 const initialState = {
     count: 0,

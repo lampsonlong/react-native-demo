@@ -1,4 +1,4 @@
-import * as types from '../constants/login-types';// 导入事件类型,用来做分配给各个事件
+import * as types from '../const/login-types';// 导入事件类型,用来做分配给各个事件
 
 // 访问登录接口 根据返回结果来划分action属于哪个type,然后返回对象,给reducer处理
 export function login(loginParams) {

@@ -1,12 +1,13 @@
 import { put, take, call, fork } from 'redux-saga/effects';
 import RequestUtil from '../util/request.util';
 import {isLogining, loginSuccess, loginError} from '../actions/login.actions';
-import * as types from '../constants/login-types';
+import * as types from '../const/login-types';
+import REST_API from '../util/api-url.util';
 
 export function* login(params) {
     console.log('login request...', params);
     yield put(isLogining());
-    const res = yield call(RequestUtil.get, 'http://dev-cex-api.dcex.world/spot/user/dictionary/marketList', params);
+    const res = yield call(RequestUtil.get, REST_API.authentication.login.url, params);
     console.log('login response... ', res);
 
     if (res && res.code === '0') {
