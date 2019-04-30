@@ -24,7 +24,7 @@ const HomePageStack = createStackNavigator({
         headerStyle: {
             backgroundColor: '#f4511e',
         },
-        headerTintColor: '#fff',
+        headerTrackColor: '#fff',
         headerTitleStyle: {
             fontWeight: 'bold',
         },
@@ -52,41 +52,44 @@ const RootStack = createBottomTabNavigator({
 });
 const AppContainer = createAppContainer(RootStack);
 
-// const store = configureStore();
-//
-// // run root saga
-// store.runSaga(rootSaga);
-
 export default class App extends Component {
-    state = {
-        isLoading: true,
-        store: null
-    };
-
+    /*-----Data Part-----*/
+    /*-----Constructor Part-----*/
     constructor() {
         super();
         this.state = {
             storeCreated: false,
+            storeRehydrated: false,
             store: null
         };
     }
 
+    /*-----Lifecycle Part-----*/
     componentDidMount() {
-        configureStore()
-            .then((store) => {
-                this.setState({ store, storeCreated: true });
-                store.runSaga(rootSaga);
+        configureStore(() => {
+            // 持久化数据merge完毕
+            this.setState({storeRehydrated: true});
+        }).then((store) => {
+            this.setState({
+                store,
+                storeCreated: true,
             });
+
+            store.runSaga(rootSaga);
+        });
     }
 
+    /*-----Methods Part-----*/
+
+    /*-----Render Part-----*/
     render() {
-        if (!this.state.storeCreated) {
+        if (!this.state.storeCreated || !this.state.storeRehydrated) {
             return <View><Text>Loading!!!</Text></View>;
         }
         return (
             <Provider store={this.state.store}>
                 <AntProvider locale={zh_CN}>
-                    <AppContainer />
+                    <AppContainer/>
                 </AntProvider>
             </Provider>);
     }

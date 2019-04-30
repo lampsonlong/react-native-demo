@@ -9,6 +9,7 @@ export default function language(state = initialState, action) {
         case 'SWITCH_LANGUAGE':
             // 更新i18n
             const {lang} = action;
+            // 切换语言
             I18n.setLanguage(lang);
 
             return {

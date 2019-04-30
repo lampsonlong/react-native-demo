@@ -18,9 +18,9 @@ class DetailsPage extends React.Component {
         ),
         /* These values are used instead of the shared configuration! */
         headerStyle: {
-            backgroundColor: navigationOptions.headerTintColor,
+            backgroundColor: navigationOptions.headerTrackColor,
         },
-        headerTintColor: navigationOptions.headerStyle.backgroundColor,
+        headerTrackColor: navigationOptions.headerStyle.backgroundColor,
     });
 
     state = {

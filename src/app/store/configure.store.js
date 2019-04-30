@@ -1,10 +1,10 @@
-import store from 'react-native-simple-store';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware, { END } from 'redux-saga';
 import {applyMiddleware, createStore} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from '../reducers/index';
 import I18n from '../util/i18n.util';
-
 
 const middlewares = [];
 
@@ -15,20 +15,33 @@ middlewares.push(sagaMiddleware);
 
 const applyMiddlewares = applyMiddleware(...middlewares);
 
+const persistConfig = {
+    key: 'root',
+    storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export default async function configureStore(initialState) {
-    // TODO 待优化
-    const testAsync = await store.get('lang');
-    I18n.setLanguage(testAsync);
-    console.log(testAsync);
-    const store1 = createStore(
-        rootReducer,
-        initialState,
+    const store = createStore(
+        persistedReducer,
         composeWithDevTools(applyMiddlewares)
     );
 
-    // install saga run
-    store1.runSaga = sagaMiddleware.run;
-    store1.close = () => store1.dispatch(END);
+    console.log('storage', storage);
 
-    return store1;
+    const persistor = persistStore(store, {}, () => {
+        console.log('persistStore callback', store.getState());
+        // 初始化语言
+        const lang = store.getState().language.lang;
+        I18n.setLanguage(lang);
+        console.log('初始化语言：' + lang);
+        initialState();
+    });
+
+    // install saga run
+    store.runSaga = sagaMiddleware.run;
+    store.close = () => store.dispatch(END);
+
+    return store;
 }

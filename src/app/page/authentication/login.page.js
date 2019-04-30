@@ -19,7 +19,7 @@ class LoginPage extends Component {
         headerStyle: {
             backgroundColor: '#f4511e',
         },
-        headerTintColor: '#000',
+        headerTrackColor: '#000',
         headerTitleStyle: {
             fontWeight: 'bold',
         },
