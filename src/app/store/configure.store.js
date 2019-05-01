@@ -22,24 +22,26 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export default async function configureStore(initialState) {
+export default async function configureStore(onComplete) {
     const store = createStore(
         persistedReducer,
         composeWithDevTools(applyMiddlewares)
     );
 
-    console.log('storage', storage);
-
-    const persistor = persistStore(store, {}, () => {
+    // 读取本地缓存
+    persistStore(store, {}, () => {
+        // 读取完毕
         console.log('persistStore callback', store.getState());
         // 初始化语言
         const lang = store.getState().language.lang;
         I18n.setLanguage(lang);
         console.log('初始化语言：' + lang);
-        initialState();
+
+        // 初始化完毕（回调）
+        onComplete();
     });
 
-    // install saga run
+    // 启动saga
     store.runSaga = sagaMiddleware.run;
     store.close = () => store.dispatch(END);
 
