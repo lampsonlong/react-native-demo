@@ -8,6 +8,6 @@
 * Debug工具
   > [安装React-Native-Debugger](https://github.com/jhen0409/react-native-debugger)
 * 状态持久化
-  > react-persist
+  > [react-persist](https://www.npmjs.com/package/redux-persist)
 * 多语言
   > react-native-i18n
