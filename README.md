@@ -7,7 +7,7 @@
   > react-redux、redux-saga
 * Debug工具
   > [安装React-Native-Debugger](https://github.com/jhen0409/react-native-debugger)
-* 本地存储
-  > @react-native-community/async-storage
+* 状态持久化
+  > [react-persist](https://www.npmjs.com/package/redux-persist)
 * 多语言
   > react-native-i18n
