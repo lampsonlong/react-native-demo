@@ -17,6 +17,7 @@ const applyMiddlewares = applyMiddleware(...middlewares);
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist: ['counter']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
