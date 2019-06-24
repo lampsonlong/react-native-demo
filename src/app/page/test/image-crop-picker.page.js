@@ -16,11 +16,6 @@ import {Button, Modal, Stepper} from '@ant-design/react-native';
 import Icon from 'react-native-vector-icons/DoulongwanIcons';
 
 import ImagePicker from 'react-native-image-crop-picker';
-import InputPaymentPasswordModal from "../../component/input-payment-password-modal.component";
-import {REGEX_PAYMENT_PASSWORD} from "../../const/regex.const";
-import * as AssetsService from "../../service/assets.service";
-import {ERROR_CODE} from "../../const/error-code.const";
-import InputAmountComponent from "../../component/input-amount.component";
 
 class ImageCropPickerPage extends React.Component {
     /*-----Data Part-----*/
@@ -45,31 +40,6 @@ class ImageCropPickerPage extends React.Component {
     /*-----Constructor Part-----*/
     /*-----Lifecycle Part-----*/
     /*-----Methods Part-----*/
-    validateTransferAmount = () => {
-        const amount = this.state.transfer.value;
-        if (amount && Number(amount) <= Number(999)) {
-            this.setState({
-                transfer: {
-                    value: amount,
-                    valid: true,
-                },
-            });
-        } else {
-            this.setState({
-                transfer: {
-                    value: this.state.transfer.value,
-                    valid: false,
-                },
-            });
-        }
-    };
-
-    onChange = (value) => {
-        this.setState({
-            textValue: value,
-        });
-    };
-
     /**
      * 从相册选择图片
      */
@@ -171,20 +141,10 @@ class ImageCropPickerPage extends React.Component {
 
         return null;
     };
-
-    validateSmsCode = () => {
-
-    };
-
-    onSmsCodeModalClose = () => {
-        this.setModalVisible(false);
-    };
-
     /*-----Render Part-----*/
     render() {
         return (
             <ScrollView keyboardShouldPersistTaps={'handled'} scrollEnabled={false}>
-
                 <View style={{height: '100%', alignItems: 'center', justifyContent: 'center'}}>
                     <TextInput
                         type={'text'}
@@ -205,38 +165,7 @@ class ImageCropPickerPage extends React.Component {
                         />
                     </View>
                     <Icon name="share-tag" size={16} />
-                    <TouchableHighlight
-                        onPress={() => {
-                            this.setModalVisible(true);
-                        }}
-                    >
-                        <Text>Show Modal</Text>
-                    </TouchableHighlight>
-                    <InputPaymentPasswordModal
-                        visible={this.state.modalVisible}
-                        item={this.state.transfer}
-                        onChange={(smsCode) => {
-                            this.setState({
-                                transfer: {
-                                    value: smsCode,
-                                    valid: false,
-                                    error: '',
-                                }
-                            });
-                        }}
-                        onBlur={(smsCode) => this.validateSmsCode(smsCode)}
-                        onClose={() => this.onSmsCodeModalClose()}
-                        title="请输入短信验证码"
-                        loading={this.state.loading}
-                    />
                 </View>
-                <Stepper
-                    key="1"
-                    max={10}
-                    min={1}
-                    readOnly={true}
-                    defaultValue={1}
-                />
             </ScrollView>
         );
     }
