@@ -1,5 +1,5 @@
 export const environment = {
     config: {
-        apiUrl: 'http://dev-cex-api.dcex.world',
+        apiUrl: 'https://www.baidu.com',
     }
 };
