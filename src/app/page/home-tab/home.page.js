@@ -97,6 +97,11 @@ class HomePage extends Component {
                 />
                 <WhiteSpace />
                 <Text>{this.state.checked ? '自闭中，并且无法关闭' : '开启自闭'}</Text>
+                <Button
+                    onPress={() => this.props.navigation.navigate('NewNavTest3')}
+                >
+                    Go to NewNavTest3
+                </Button>
             </View>
         );
     }
