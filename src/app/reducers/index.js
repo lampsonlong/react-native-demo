@@ -1,5 +1,14 @@
-import { combineReducers } from 'redux';
+import storage from 'redux-persist/lib/storage';
+import {persistReducer} from 'redux-persist';
+import {combineReducers} from 'redux';
 import global from './global.reducer';
+
+// 配置本地缓存
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['global'] // 缓存全局
+};
 
 /**
  * 将所有的redux处理逻辑包装在一起
@@ -10,4 +19,4 @@ const rootReducer = combineReducers({
 });
 
 // 统一导出
-export default rootReducer;
+export default persistReducer(persistConfig, rootReducer);

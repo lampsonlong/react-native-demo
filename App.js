@@ -41,16 +41,13 @@ export default class App extends Component {
      * @param rehydratedStore
      */
     initialState(rehydratedStore) {
-        // 初始化语言
-        const lang = rehydratedStore.getState().language.lang;
-        I18n.setLanguage(lang);
-        console.log('初始化语言：' + lang);
+        // 初始化处理
     }
 
     /*-----Render Part-----*/
     render() {
         if (!this.state.storeCreated || !this.state.storeRehydrated) {
-            // TODO app启动页
+            // app启动后，至本地缓存读取完毕前显示的页面
             return <View><Text>Loading!!!</Text></View>;
         }
         return (

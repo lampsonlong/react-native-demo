@@ -17,7 +17,7 @@ const initialState = {
  * 全局数据reducer
  * @param state
  * @param action
- * @returns {{loginInfo: null, userInfo: null}}
+ * @returns {{loginInfo: {ak: null}, userInfo: {id: number, nickName: string, phone: string}, isLogin: boolean}}
  */
 export default function global(state = initialState, action) {
     switch (action.type) {
