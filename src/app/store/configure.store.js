@@ -1,16 +1,10 @@
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import createSagaMiddleware, { END } from 'redux-saga';
 import {applyMiddleware, createStore} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from '../reducers/index';
 
 const middlewares = [];
-
-// configuring saga middleware
-const sagaMiddleware = createSagaMiddleware();
-
-middlewares.push(sagaMiddleware);
 
 const applyMiddlewares = applyMiddleware(...middlewares);
 
@@ -36,10 +30,6 @@ export default async function configureStore(onComplete, initialState) {
         // 初始化完毕（回调）
         onComplete();
     });
-
-    // 启动saga
-    store.runSaga = sagaMiddleware.run;
-    store.close = () => store.dispatch(END);
 
     return store;
 }

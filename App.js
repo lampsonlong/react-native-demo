@@ -6,7 +6,6 @@ import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import configureStore from './src/app/store/configure.store';
-import rootSaga from './src/app/saga/index.saga';
 import RootStack from './src/app/router/index.router';
 import I18n from './src/app/util/i18n.util';
 
@@ -33,8 +32,6 @@ export default class App extends Component {
                 store,
                 storeCreated: true,
             });
-
-            store.runSaga(rootSaga);
         });
     }
 
