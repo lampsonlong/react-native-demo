@@ -1,0 +1,19 @@
+export const SET_LOGIN_INFO = 'SET_LOGIN_INFO';
+export const CLEAR_LOGIN_INFO = 'CLEAR_LOGIN_INFO';
+export const GET_USER_INFO = 'GET_USER_INFO';
+export const SET_USER_INFO = 'SET_USER_INFO';
+export const CLEAR_USER_INFO = 'SET_USER_INFO';
+
+export const SHOW_KYC_MODAL = 'SHOW_KYC_MODAL';
+export const HIDE_KYC_MODAL = 'HIDE_KYC_MODAL';
+
+export const SHOW_UPDATE_MODAL = 'SHOW_UPDATE_MODAL';
+export const HIDE_UPDATE_MODAL = 'HIDE_UPDATE_MODAL';
+
+export const SET_VERSION_INFO = 'SET_VERSION_INFO';
+export const GET_VERSION_INFO = 'GET_VERSION_INFO';
+
+export const GET_SYSTEM_INFO = 'GET_SYSTEM_INFO';
+export const SET_SYSTEM_INFO = 'SET_SYSTEM_INFO';
+
+export const FIRST_LAUNCHED = 'FIRST_LAUNCHED';
