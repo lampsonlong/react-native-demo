@@ -1,4 +1,5 @@
-import {createBottomTabNavigator} from "react-navigation";
+import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
+import store from '../store/store';
 import {Text} from "react-native";
 import React from "react";
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -48,9 +49,7 @@ const TabsStack = createBottomTabNavigator({
             return <Text style={{color: tintColor, fontSize: 12, textAlign: 'center'}}>{label}</Text>;
         },
         tabBarOnPress: ({navigation, defaultHandler}) => {
-            console.log(defaultHandler);
             const routeName = navigation.state.routeName;
-
             switch (routeName) {
                 case 'Tabs1':
                 case 'Tabs2':
@@ -59,8 +58,14 @@ const TabsStack = createBottomTabNavigator({
                     return defaultHandler();
                 case 'Tabs4':
                     // 自定义路由
-                    navigation.navigate('Login');
-                    break;
+                    const state = store.getState();
+                    if (state.global.isLogin) {
+                        // 若已登录，默认跳转
+                        return defaultHandler();
+                    } else {
+                        // 若未登录，则跳转至登录
+                        return navigation.navigate('Login');
+                    }
             }
         },
     }),

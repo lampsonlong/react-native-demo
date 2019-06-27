@@ -1,13 +1,9 @@
-import zh_CN from '@ant-design/react-native/lib/locale-provider/zh_CN';
-
 import {Provider} from 'react-redux';
-import {Provider as AntProvider} from '@ant-design/react-native';
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import configureStore from './src/app/store/configure.store';
 import RootStack from './src/app/router/index.router';
-import I18n from './src/app/util/i18n.util';
 
 const AppContainer = createAppContainer(RootStack);
 
@@ -52,9 +48,7 @@ export default class App extends Component {
         }
         return (
             <Provider store={this.state.store}>
-                <AntProvider locale={zh_CN}>
-                    <AppContainer/>
-                </AntProvider>
+                <AppContainer/>
             </Provider>);
     }
 }
