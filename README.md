@@ -1,4 +1,4 @@
-# react-native-demo1
+# react-native-demo
 * UI框架
   > [rn-mobile-ant-design](https://rn.mobile.ant.design/docs/react/introduce-cn)
   ※经历过一次项目后，感觉ant的rn就是一坨屎，强烈不建议使用。（基本用了之后都有各种各样的问题，然后再用rn控件重写一遍。）
