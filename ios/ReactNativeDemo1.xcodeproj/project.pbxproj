@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -40,7 +41,6 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeDemo1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeDemo1Tests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		348BF0D065DD4EC5A9AF569C /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 671E30A99AA947C3B16769E4 /* antoutline.ttf */; };
 		36842E9BB2D645D9A5AE4E52 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29631BB3DCE5439CAADB5472 /* Octicons.ttf */; };
 		46C2470967E243F8A0215047 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE0BEC7313894AB696E92D30 /* FontAwesome5_Regular.ttf */; };
 		52C9F555E62E43CD852ACCEC /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 950F081B63C246AD84155F7E /* FontAwesome5_Brands.ttf */; };
@@ -51,7 +51,6 @@
 		748D3B52D43E48039E0E61FC /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 647DC868935F4A738913D45D /* SimpleLineIcons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		899E41712D604C80B81686EA /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29FF05428EEC4FB68A224B96 /* MaterialCommunityIcons.ttf */; };
-		8AB83715D3164BE38125AE30 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F740431E144848F26F6BC /* antfill.ttf */; };
 		8FA1B341227340F5AD36A60F /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7386311024944F4F9BC797D5 /* libRNVectorIcons-tvOS.a */; };
 		9672E3464D72495ABA74D965 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06848EFA4B154A269D99B6A0 /* Foundation.ttf */; };
 		AD58BD970F4040ACB4F97F8E /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFF93D379A4296835A086E /* Feather.ttf */; };
@@ -416,9 +415,7 @@
 		575E7219D842448188101971 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		647DC868935F4A738913D45D /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		671E30A99AA947C3B16769E4 /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		7386311024944F4F9BC797D5 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; };
-		755F740431E144848F26F6BC /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		77367336EB8B482199F586EB /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		80911C831E474598BE9BD307 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
@@ -715,8 +712,6 @@
 		C0C6C14A63344FC390B2692E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				755F740431E144848F26F6BC /* antfill.ttf */,
-				671E30A99AA947C3B16769E4 /* antoutline.ttf */,
 				80911C831E474598BE9BD307 /* AntDesign.ttf */,
 				B31939B63491449BB0B804FF /* Entypo.ttf */,
 				DA227940C5B84F7E9CEF1BC4 /* EvilIcons.ttf */,
@@ -743,7 +738,6 @@
 				3A476875ADA34FF298469D18 /* libRNGestureHandler-tvOS.a */,
 				575E7219D842448188101971 /* libRNVectorIcons.a */,
 				7386311024944F4F9BC797D5 /* libRNVectorIcons-tvOS.a */,
-				5E83755012FA434BA012FA69 /* libRNCAsyncStorage.a */,
 				01677045976E465F86318431 /* libRNI18n.a */,
 				B6BCE81A31674EEBA9B440A0 /* libRNI18n-tvOS.a */,
 			);
@@ -1281,8 +1275,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				8AB83715D3164BE38125AE30 /* antfill.ttf in Resources */,
-				348BF0D065DD4EC5A9AF569C /* antoutline.ttf in Resources */,
 				5B97F74D89284B3881F1654B /* AntDesign.ttf in Resources */,
 				1012565138AC4275AA0C5AE9 /* Entypo.ttf in Resources */,
 				2A31816DC06E429E8612DDED /* EvilIcons.ttf in Resources */,
@@ -1429,9 +1421,7 @@
 				INFOPLIST_FILE = ReactNativeDemo1Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1456,9 +1446,7 @@
 				INFOPLIST_FILE = ReactNativeDemo1Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1540,9 +1528,7 @@
 				);
 				INFOPLIST_FILE = "ReactNativeDemo1-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1575,9 +1561,7 @@
 				);
 				INFOPLIST_FILE = "ReactNativeDemo1-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1609,9 +1593,7 @@
 				);
 				INFOPLIST_FILE = "ReactNativeDemo1-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1643,9 +1625,7 @@
 				);
 				INFOPLIST_FILE = "ReactNativeDemo1-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
