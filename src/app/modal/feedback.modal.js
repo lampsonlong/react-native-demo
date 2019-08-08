@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Text, StyleSheet, View, Image, Platform, Animated, Easing} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import LinearGradient from 'react-native-linear-gradient';
 
 import * as globalAction from '../actions/global.action';
 
@@ -66,9 +67,11 @@ class FeedbackModal extends Component {
         // 显示模态框
         return (
             <Animated.View style={[styles.modalContainer, {top: this.state.topValue}]}>
-                <View style={styles.container}>
-                    <Text style={styles.context}>{topMessage}</Text>
-                </View>
+                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#1530FF', '#7745FF']} style={styles.lgContainer}>
+                    <View style={styles.container}>
+                        <Text style={styles.context}>{topMessage}</Text>
+                    </View>
+                </LinearGradient>
             </Animated.View>
 
         );
@@ -81,10 +84,12 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 100,
         position: 'absolute',
-        backgroundColor: '#7745FF',
         flexDirection: 'row',
-        borderBottomLeftRadius: 20,
-        borderBottomRightRadius: 20,
+    },
+    lgContainer: {
+        flex: 1,
+        borderBottomLeftRadius: 18,
+        borderBottomRightRadius: 18,
         ...Platform.select({
             ios: {
                 shadowColor: '#C9C3FF',
