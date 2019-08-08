@@ -96,3 +96,16 @@ export function clearUserInfo(userInfo) {
         userInfo,
     };
 }
+
+export function setTopMessage(topMessage) {
+    return {
+        type: types.SET_TOP_MESSAGE,
+        topMessage,
+    };
+}
+
+export function clearTopMessage() {
+    return {
+        type: types.CLEAR_TOP_MESSAGE,
+    };
+}

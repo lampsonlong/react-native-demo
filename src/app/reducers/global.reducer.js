@@ -11,6 +11,8 @@ const initialState = {
         phone: '',
     },
     isLogin: false,
+    topMessage: null,
+    isShowTopMessage: false,
 };
 
 /**
@@ -50,6 +52,18 @@ export default function global(state = initialState, action) {
             return {
                 ...state,
                 userInfo: initialState.userInfo,
+            };
+        case types.SET_TOP_MESSAGE:
+
+            return {
+                ...state,
+                topMessage: action.topMessage,
+                isShowTopMessage: true,
+            };
+        case types.CLEAR_TOP_MESSAGE:
+            return {
+                ...state,
+                isShowTopMessage: false,
             };
         default:
             return state;

@@ -5,6 +5,8 @@ import {createAppContainer} from 'react-navigation';
 import configureStore from './src/app/store/configure.store';
 import RootStack from './src/app/router/index.router';
 
+import FeedbackModal from './src/app/modal/feedback.modal';
+
 const AppContainer = createAppContainer(RootStack);
 
 export default class App extends Component {
@@ -49,6 +51,7 @@ export default class App extends Component {
         return (
             <Provider store={this.state.store}>
                 <AppContainer/>
+                <FeedbackModal/>
             </Provider>);
     }
 }
