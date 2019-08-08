@@ -1,48 +1,16 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import {View, Text, Button, Animated, Easing} from 'react-native';
+import CardComponent from "../../components/card.component";
 
 class Tabs1Page extends React.Component {
     /*-----Data Part-----*/
     title = 'Tabs1 Page';
-
-    state = {
-        spinValue: new Animated.Value(0),
-        is90deg: false,
-    };
-
     /*-----Constructor Part-----*/
     /*-----Lifecycle Part-----*/
     /*-----Methods Part-----*/
     goToOrderConfirm = () => {
         this.props.navigation.navigate('OrderConfirm');
-    };
-
-    cardClick = () => {
-        this.state.spinValue.addListener((event) => {
-            if (event.value >= 90) {
-                this.setState({
-                    is90deg: true,
-                });
-            }
-        });
-
-        Animated.timing(
-            this.state.spinValue,
-            {
-                toValue: 180,
-                duration: 1000,
-                easing: Easing.bezier(0.5, 1, 0.5, 1),
-                useNativeDriver: true,
-            },
-        ).start();
-    };
-
-    reset = () => {
-        this.setState({
-            spinValue: new Animated.Value(0),
-            is90deg: false,
-        });
     };
     /*-----Render Part-----*/
     render() {
@@ -50,31 +18,7 @@ class Tabs1Page extends React.Component {
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text>{this.title}</Text>
                 <Button onPress={() => this.goToOrderConfirm()} title={'订单确认'} />
-                <Button onPress={() => this.cardClick()} title={'动画'}/>
-                <Button onPress={() => this.reset()} title={'重置动画'}/>
-
-                <Animated.Image
-                    style={{
-                        width: 150,
-                        transform: [
-                            {
-                                perspective: 400,
-                            },
-                            {
-                                rotateY: this.state.spinValue.interpolate({
-                                    inputRange: [0, 180],
-                                    outputRange: ['0deg', '180deg']
-                                }),
-
-                            },
-                            {
-                                scaleX: this.state.is90deg ? -1 : 1,
-                            }
-                        ]
-                    }}
-                    source={this.state.is90deg ? require('../../../asset/images/vipCard_vip2.png') : require('../../../asset/images/vipCard_vip4.png')}
-                >
-                </Animated.Image>
+                <CardComponent/>
             </View>
         );
     }
