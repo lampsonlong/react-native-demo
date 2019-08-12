@@ -9,7 +9,7 @@ const propTypes = {
     disabled: PropTypes.bool,
 };
 
-class LongButtonComponent extends Component {
+class ShortButtonComponent extends Component {
     /*-----Data Part-----*/
     /*-----Constructor Part-----*/
     /*-----Lifecycle Part-----*/
@@ -30,6 +30,7 @@ class LongButtonComponent extends Component {
     render() {
         const {title} = this.props;
         const disabled = this.props.disabled === undefined ? false : this.props.disabled;
+
         // 显示模态框
         return (
             <TouchableOpacity onPress={() => this.onPress()} activeOpacity={0.7} style={styles.container}>
@@ -48,20 +49,20 @@ const styles = StyleSheet.create({
     container: {
     },
     lgContainer: {
-        width: 344,
-        height: 44,
-        borderRadius: 5,
+        height: 40,
+        borderRadius: 22,
     },
     context: {
         color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
-        lineHeight: 44,
+        lineHeight: 40,
         textAlign: 'center',
+        paddingHorizontal: 20,
     },
 });
 
 /*-----Redux Part-----*/
-LongButtonComponent.propTypes = propTypes;
+ShortButtonComponent.propTypes = propTypes;
 
-export default LongButtonComponent;
+export default ShortButtonComponent;
