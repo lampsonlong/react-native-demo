@@ -1,11 +1,13 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import {View, Text, Button, Animated, Easing} from 'react-native';
-import CardComponent from "../../components/card.component";
-import {bindActionCreators} from "redux";
-import * as globalAction from "../../actions/global.action";
-import PropTypes from "prop-types";
-import LongButtonComponent from "../../components/long-button.component";
+import CardComponent from '../../components/card.component';
+import {bindActionCreators} from 'redux';
+import * as globalAction from '../../actions/global.action';
+import PropTypes from 'prop-types';
+import LongButtonComponent from '../../components/long-button.component';
+import ShortButtonComponent from '../../components/short-button.component';
+import TipsBarComponent from "../../components/tips-bar.component";
 
 const propTypes = {
     globalAction: PropTypes.object,
@@ -33,9 +35,11 @@ class Tabs1Page extends React.Component {
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text>{this.title}</Text>
-                <Button onPress={() => this.goToOrderConfirm()} title={'订单确认'} />
-                <LongButtonComponent onPress={() => this.showTopMessage()} title={'显示后端反馈'} />
+                <Button onPress={() => this.goToOrderConfirm()} title="订单确认" />
+                <TipsBarComponent title={'已开始匹配'} countDown={86400}/>
                 <CardComponent/>
+                <ShortButtonComponent onPress={() => this.showTopMessage()} title="显示后端反馈" disabled={true} />
+                <LongButtonComponent onPress={() => this.showTopMessage()} title="显示后端反馈" disabled={false} />
             </View>
         );
     }
