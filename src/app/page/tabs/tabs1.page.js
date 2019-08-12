@@ -5,6 +5,7 @@ import CardComponent from "../../components/card.component";
 import {bindActionCreators} from "redux";
 import * as globalAction from "../../actions/global.action";
 import PropTypes from "prop-types";
+import LongButtonComponent from "../../components/long-button.component";
 
 const propTypes = {
     globalAction: PropTypes.object,
@@ -33,7 +34,7 @@ class Tabs1Page extends React.Component {
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text>{this.title}</Text>
                 <Button onPress={() => this.goToOrderConfirm()} title={'订单确认'} />
-                <Button onPress={() => this.showTopMessage()} title={'显示后端反馈'} />
+                <LongButtonComponent onPress={() => this.showTopMessage()} title={'显示后端反馈'} />
                 <CardComponent/>
             </View>
         );

@@ -36,15 +36,15 @@ class FeedbackModal extends Component {
                 this.state.topValue,
                 {
                     toValue: 0,
-                    duration: 2000,
+                    duration: 1000,
                 }
             ),
             Animated.timing(
                 this.state.topValue,
                 {
                     toValue: -100,
-                    duration: 500,
-                    easing: Easing.bezier(0.5, 0, 1, 0),
+                    duration: 200,
+                    easing: Easing.linear,
                 }
             )
         ]).start();
