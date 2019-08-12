@@ -27,6 +27,13 @@ class FeedbackModal extends Component {
             Animated.timing(
                 this.state.topValue,
                 {
+                    toValue: -100,
+                    duration: 1,
+                }
+            ),
+            Animated.timing(
+                this.state.topValue,
+                {
                     toValue: 0,
                     duration: 500,
                     easing: Easing.bezier(0, 1, 0.5, 1),
@@ -96,8 +103,8 @@ const styles = StyleSheet.create({
                 shadowOpacity: 0.8,
                 shadowRadius: 10,
                 shadowOffset: {
-                    height: 10,
-                    width: 0,
+                    height: 30,
+                    width: 10,
                 }
             },
             android: {
