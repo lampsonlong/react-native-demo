@@ -32,8 +32,8 @@ class LongButtonComponent extends Component {
         const disabled = this.props.disabled === undefined ? false : this.props.disabled;
         // 显示模态框
         return (
-            <TouchableOpacity onPress={() => this.onPress()} activeOpacity={0.7} style={styles.container}>
-                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[disabled ? '#0A1F3B' : '#1530FF', disabled ? '#0A1F3B' : '#7745FF']} style={styles.lgContainer}>
+            <TouchableOpacity onPress={() => this.onPress()} activeOpacity={disabled ? 1 : 0.7} style={styles.container}>
+                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[disabled ? '#AEB4BC' : '#1530FF', disabled ? '#AEB4BC' : '#7745FF']} style={styles.lgContainer}>
                     <View>
                         <Text style={styles.context}>{title}</Text>
                     </View>
