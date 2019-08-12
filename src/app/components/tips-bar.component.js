@@ -106,7 +106,9 @@ class TipsBarComponent extends Component {
                                 </View>
                             </View>
                             :
-                            <Text style={styles.context}>{title}</Text>
+                            <View style={{flexDirection: 'row', marginVertical: 8, justifyContent: 'center'}}>
+                                <Text style={styles.context}>{title}</Text>
+                            </View>
                         }
                     </View>
                 </LinearGradient>
