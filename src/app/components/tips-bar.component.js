@@ -19,12 +19,12 @@ const propTypes = {
 class TipsBarComponent extends Component {
     /*-----Data Part-----*/
     state = {
-        count: this.props.countDown,    // 倒计时（秒）
+        count: this.props.countDown, // 倒计时（秒）
         isCountDown: false, // 是否处于倒计时状态
         time: {
             sec: 0, // 倒计时显示：秒
             min: 0, // 倒计时显示：分
-            hour: 0,    // 倒计时显示：小时
+            hour: 0, // 倒计时显示：小时
         }
     };
 
@@ -87,28 +87,30 @@ class TipsBarComponent extends Component {
         const {title} = this.props;
         // 显示模态框
         return (
-            <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#1530FF', '#7745FF']} style={styles.lgContainer}>
-                <View>
-                    {this.state.isCountDown ?
-                        <View style={{flexDirection: 'row', marginVertical: 8, justifyContent: 'center'}}>
-                            <Text style={styles.context}>倒计时：</Text>
-                            <View style={styles.countNumberContainer}>
-                                <Text style={styles.context}>{this.state.time.hour}</Text>
+            <View style={styles.container}>
+                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#1530FF', '#7745FF']} style={styles.lgContainer}>
+                    <View>
+                        {this.state.isCountDown ?
+                            <View style={{flexDirection: 'row', marginVertical: 8, justifyContent: 'center'}}>
+                                <Text style={styles.context}>倒计时：</Text>
+                                <View style={styles.countNumberContainer}>
+                                    <Text style={styles.context}>{this.state.time.hour}</Text>
+                                </View>
+                                <Text style={styles.context}>&nbsp;:&nbsp;</Text>
+                                <View style={styles.countNumberContainer}>
+                                    <Text style={styles.context}>{this.state.time.min}</Text>
+                                </View>
+                                <Text style={styles.context}>&nbsp;:&nbsp;</Text>
+                                <View style={styles.countNumberContainer}>
+                                    <Text style={styles.context}>{this.state.time.sec}</Text>
+                                </View>
                             </View>
-                            <Text style={styles.context}> : </Text>
-                            <View style={styles.countNumberContainer}>
-                                <Text style={styles.context}>{this.state.time.min}</Text>
-                            </View>
-                            <Text style={styles.context}> : </Text>
-                            <View style={styles.countNumberContainer}>
-                                <Text style={styles.context}>{this.state.time.sec}</Text>
-                            </View>
-                        </View>
-                        :
-                        <Text style={styles.context}>{title}</Text>
-                    }
-                </View>
-            </LinearGradient>
+                            :
+                            <Text style={styles.context}>{title}</Text>
+                        }
+                    </View>
+                </LinearGradient>
+            </View>
         );
     }
 }
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
     },
     context: {
         color: '#fff',
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: 'bold',
         lineHeight: 28,
         textAlign: 'center',
