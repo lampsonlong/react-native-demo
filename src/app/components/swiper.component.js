@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, StyleSheet, View, ImageBackground, Platform, Image} from 'react-native';
+import {Text, StyleSheet, View, ImageBackground, Platform, Image, Animated, Easing} from 'react-native';
 import Swiper from 'react-native-swiper';
 import PropTypes from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
@@ -11,15 +11,58 @@ const propTypes = {
 class SwiperComponent extends Component {
     /*-----Data Part-----*/
     state = {
+        preIndex: -1,
         index: 0,
+        paginationColor: new Animated.Value(0), // 0->255
+        paginationWidth: new Animated.Value(0), // 10->20
     };
     /*-----Constructor Part-----*/
     /*-----Lifecycle Part-----*/
     /*-----Methods Part-----*/
+    paginationAnimate = () => {
+        Animated.sequence([
+            Animated.timing(
+                this.state.paginationWidth,
+                {
+                    toValue: 0,
+                    duration: 1,
+                }
+            ),
+            Animated.timing(
+                this.state.paginationWidth,
+                {
+                    toValue: 1,
+                    duration: 200,
+                    easing: Easing.linear,
+                },
+            )
+        ]).start();
+
+        Animated.sequence([
+            Animated.timing(
+                this.state.paginationColor,
+                {
+                    toValue: 0,
+                    duration: 1,
+                }
+            ),
+            Animated.timing(
+                this.state.paginationColor,
+                {
+                    toValue: 1,
+                    duration: 200,
+                    easing: Easing.linear,
+                },
+            )
+        ]).start();
+    };
+
     onIndexChanged = (index) => {
+        const preIndex = this.state.index;
         // console.log(index);
         this.setState({
             index,
+            preIndex,
         });
     };
 
@@ -27,11 +70,28 @@ class SwiperComponent extends Component {
         console.log('renderCustomPagination', this.props.swiperList);
         const renderElements = [];
         this.props.swiperList.forEach((data, index) => {
-            const element = (
-                <View key={data.id} style={index === this.state.index ? styles.activePagination : styles.inactivePagination} />
-            );
-            renderElements.push(element);
+            if (this.state.index === index) {
+                // inactive->active动画
+                const element = (
+                    <Animated.View key={data.id} style={[styles.inactivePagination, {width: this.state.paginationWidth.interpolate({inputRange: [0, 1], outputRange: [10, 20]}), backgroundColor: this.state.paginationColor.interpolate({inputRange: [0, 1], outputRange: ['#D3D6DB', '#0A1F3B']})}]} />
+                );
+                renderElements.push(element);
+            } else if (this.state.preIndex === index) {
+                // active->inactive动画
+                const element = (
+                    <Animated.View key={data.id} style={[styles.activePagination, {width: this.state.paginationWidth.interpolate({inputRange: [0, 1], outputRange: [20, 10]}), backgroundColor: this.state.paginationColor.interpolate({inputRange: [0, 1], outputRange: ['#0A1F3B', '#D3D6DB']})}]} />
+                );
+                renderElements.push(element);
+            } else {
+                // inactive无动画
+                const element = (
+                    <View key={data.id} style={[styles.inactivePagination, {width: 10}]} />
+                );
+                renderElements.push(element);
+            }
         });
+
+        this.paginationAnimate();
 
         return (
             <View style={{flexDirection: 'row'}}>
@@ -108,7 +168,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
     },
     inactivePagination: {
-        width: 10,
+        // width: 10,
         height: 3,
         borderRadius: 1,
         backgroundColor: '#D3D6DB',
@@ -116,7 +176,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     activePagination: {
-        width: 20,
+        // width: 20,
         height: 3,
         borderRadius: 1,
         backgroundColor: '#0A1F3B',
