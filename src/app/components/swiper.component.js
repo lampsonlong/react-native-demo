@@ -13,21 +13,14 @@ class SwiperComponent extends Component {
     state = {
         preIndex: -1,
         index: 0,
-        paginationColor: new Animated.Value(0), // 0->255
-        paginationWidth: new Animated.Value(0), // 10->20
+        paginationColor: new Animated.Value(0),
+        paginationWidth: new Animated.Value(0),
     };
     /*-----Constructor Part-----*/
     /*-----Lifecycle Part-----*/
     /*-----Methods Part-----*/
     paginationAnimate = () => {
         Animated.sequence([
-            Animated.timing(
-                this.state.paginationWidth,
-                {
-                    toValue: 0,
-                    duration: 1,
-                }
-            ),
             Animated.timing(
                 this.state.paginationWidth,
                 {
@@ -39,13 +32,6 @@ class SwiperComponent extends Component {
         ]).start();
 
         Animated.sequence([
-            Animated.timing(
-                this.state.paginationColor,
-                {
-                    toValue: 0,
-                    duration: 1,
-                }
-            ),
             Animated.timing(
                 this.state.paginationColor,
                 {
@@ -59,10 +45,11 @@ class SwiperComponent extends Component {
 
     onIndexChanged = (index) => {
         const preIndex = this.state.index;
-        // console.log(index);
         this.setState({
             index,
             preIndex,
+            paginationColor: new Animated.Value(0),
+            paginationWidth: new Animated.Value(0),
         });
     };
 
