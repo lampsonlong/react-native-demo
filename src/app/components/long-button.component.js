@@ -46,6 +46,7 @@ class LongButtonComponent extends Component {
 /*-----Style Part-----*/
 const styles = StyleSheet.create({
     container: {
+        marginVertical: 20,
     },
     lgContainer: {
         width: 344,
