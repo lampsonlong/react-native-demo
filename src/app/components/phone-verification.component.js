@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 const propTypes = {
+    isValid: PropTypes.func,
 };
 
 class PhoneVerificationComponent extends Component {
@@ -77,6 +78,12 @@ class PhoneVerificationComponent extends Component {
         // 动画控制
         if (value.length < this.config.inputLimit) {
             this.cursorBlinksAnimate.start();
+        }
+
+        if (value.length === this.config.inputLimit && new RegExp(regex).test(value)) {
+            this.props.isValid(true, value);
+        } else {
+            this.props.isValid(false, null);
         }
 
         this.setState({
