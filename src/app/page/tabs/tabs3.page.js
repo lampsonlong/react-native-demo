@@ -1,8 +1,9 @@
 import {connect} from 'react-redux';
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Picker} from 'react-native';
 import PhoneVerificationComponent from '../../components/phone-verification.component';
 import LongButtonComponent from '../../components/long-button.component';
+import PickerComponent from '../../components/picker.component';
 import {bindActionCreators} from 'redux';
 import * as globalAction from '../../actions/global.action';
 import PropTypes from 'prop-types';
@@ -18,7 +19,15 @@ class Tabs3Page extends React.Component {
     state = {
         isValid: false,
         verification: null,
+        pickerVisible: false,
     };
+
+    pickList = [
+        {id: '1', value: '丰腴'},
+        {id: '2', value: '凹凸'},
+        {id: '3', value: '匀称'},
+        {id: '4', value: '清瘦'},
+    ];
 
     /*-----Constructor Part-----*/
     /*-----Lifecycle Part-----*/
@@ -39,6 +48,13 @@ class Tabs3Page extends React.Component {
         console.log('submit', this.state.verification);
         this.showTopMessage();
     };
+
+    showPicker = () => {
+        console.log('showPicker');
+        this.setState({
+            pickerVisible: true,
+        });
+    };
     /*-----Render Part-----*/
     render() {
         return (
@@ -46,6 +62,16 @@ class Tabs3Page extends React.Component {
                 <Text>{this.title}</Text>
                 <PhoneVerificationComponent isValid={(status, value) => this.isValid(status, value)}/>
                 <LongButtonComponent onPress={() => this.submit()} title="提交" disabled={!this.state.isValid} />
+
+                <LongButtonComponent onPress={() => this.showPicker()} title="选择你的身材"/>
+
+                <PickerComponent
+                    title={'请选择你的体型'}
+                    pickList={this.pickList}
+                    visible={this.state.pickerVisible}
+                    onSelect={(selectedValue) => console.log(selectedValue)}
+                    onClose={() => this.setState({pickerVisible: false})}
+                />
             </View>
         );
     }
