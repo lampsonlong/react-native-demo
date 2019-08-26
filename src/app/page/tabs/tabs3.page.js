@@ -4,6 +4,7 @@ import {View, Text, Picker} from 'react-native';
 import PhoneVerificationComponent from '../../components/phone-verification.component';
 import LongButtonComponent from '../../components/long-button.component';
 import PickerComponent from '../../components/picker.component';
+import ActivityIndicatorComponent from '../../components/activity-indicator.component';
 import {bindActionCreators} from 'redux';
 import * as globalAction from '../../actions/global.action';
 import PropTypes from 'prop-types';
@@ -46,7 +47,19 @@ class Tabs3Page extends React.Component {
 
     submit = () => {
         console.log('submit', this.state.verification);
-        this.showTopMessage();
+
+        this.setState({
+            loading: true,
+        });
+
+
+        setTimeout(() => {
+            this.setState({
+                loading: false,
+            });
+
+            this.showTopMessage();
+        }, 2000);
     };
 
     showPicker = () => {
@@ -61,7 +74,7 @@ class Tabs3Page extends React.Component {
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text>{this.title}</Text>
                 <PhoneVerificationComponent isValid={(status, value) => this.isValid(status, value)}/>
-                <LongButtonComponent onPress={() => this.submit()} title="提交" disabled={!this.state.isValid} />
+                <LongButtonComponent onPress={() => this.submit()} title="提交" disabled={!this.state.isValid} loading={this.state.loading} />
 
                 <LongButtonComponent onPress={() => this.showPicker()} title="选择你的身材"/>
 

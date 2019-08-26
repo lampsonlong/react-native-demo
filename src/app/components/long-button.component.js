@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Text, StyleSheet, View, Platform, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import ActivityIndicatorComponent from "./activity-indicator.component";
 
 const propTypes = {
     title: PropTypes.string.isRequired,
     onPress: PropTypes.func,
     disabled: PropTypes.bool,
+    loading: PropTypes.bool,
 };
 
 class LongButtonComponent extends Component {
@@ -34,8 +36,10 @@ class LongButtonComponent extends Component {
         return (
             <TouchableOpacity onPress={() => this.onPress()} activeOpacity={disabled ? 1 : 0.7} style={styles.container}>
                 <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[disabled ? '#AEB4BC' : '#1530FF', disabled ? '#AEB4BC' : '#7745FF']} style={styles.lgContainer}>
-                    <View>
+                    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                        {this.props.loading ? <View style={{width: 40}}/> : <View/> }
                         <Text style={styles.context}>{title}</Text>
+                        {this.props.loading ? <ActivityIndicatorComponent/> : <View/> }
                     </View>
                 </LinearGradient>
             </TouchableOpacity>
