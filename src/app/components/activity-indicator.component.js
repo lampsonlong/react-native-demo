@@ -4,6 +4,7 @@ import {Text, StyleSheet, View, Platform, TouchableOpacity, Animated, Easing} fr
 import LinearGradient from 'react-native-linear-gradient';
 
 const propTypes = {
+    style: PropTypes.object,
 };
 
 class ActivityIndicatorComponent extends Component {
@@ -42,7 +43,7 @@ class ActivityIndicatorComponent extends Component {
                 style={{
                     width: 20,
                     height: 20,
-                    marginLeft: 20,
+                    ...this.props.style,
                     transform: [
                         {
                             perspective: 400,

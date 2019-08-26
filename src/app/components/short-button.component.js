@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Text, StyleSheet, View, Platform, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import ActivityIndicatorComponent from './activity-indicator.component';
 
 const propTypes = {
     title: PropTypes.string.isRequired,
     onPress: PropTypes.func,
     disabled: PropTypes.bool,
+    loading: PropTypes.bool,
 };
 
 class ShortButtonComponent extends Component {
@@ -28,15 +30,17 @@ class ShortButtonComponent extends Component {
      * @returns {*}
      */
     render() {
-        const {title} = this.props;
+        const {title, loading} = this.props;
         const disabled = this.props.disabled === undefined ? false : this.props.disabled;
 
         // 显示模态框
         return (
             <TouchableOpacity onPress={() => this.onPress()} activeOpacity={disabled ? 1 : 0.7} style={styles.container}>
                 <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[disabled ? '#AEB4BC' : '#1530FF', disabled ? '#AEB4BC' : '#7745FF']} style={styles.lgContainer}>
-                    <View>
+                    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingHorizontal: loading ? 0 : 40}}>
+                        {loading ? <View style={{width: 40}}/> : <View/> }
                         <Text style={styles.context}>{title}</Text>
+                        {loading ? <ActivityIndicatorComponent style={{marginLeft: 5, marginRight: 15}}/> : <View/>}
                     </View>
                 </LinearGradient>
             </TouchableOpacity>
@@ -58,7 +62,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         lineHeight: 40,
         textAlign: 'center',
-        paddingHorizontal: 20,
+        // paddingHorizontal: 40,
     },
 });
 

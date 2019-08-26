@@ -39,7 +39,7 @@ class LongButtonComponent extends Component {
                     <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                         {this.props.loading ? <View style={{width: 40}}/> : <View/> }
                         <Text style={styles.context}>{title}</Text>
-                        {this.props.loading ? <ActivityIndicatorComponent/> : <View/> }
+                        {this.props.loading ? <ActivityIndicatorComponent style={{marginLeft: 20}}/> : <View/> }
                     </View>
                 </LinearGradient>
             </TouchableOpacity>
