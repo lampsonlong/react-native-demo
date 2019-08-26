@@ -11,8 +11,11 @@ const initialState = {
         phone: '',
     },
     isLogin: false,
-    topMessage: null,
-    isShowTopMessage: false,
+    topMessage: {
+        show: false,
+        message: null,
+        error: false,
+    }
 };
 
 /**
@@ -57,13 +60,29 @@ export default function global(state = initialState, action) {
 
             return {
                 ...state,
-                topMessage: action.topMessage,
-                isShowTopMessage: true,
+                topMessage: {
+                    show: true,
+                    message: action.topMessage,
+                    error: false,
+                }
+            };
+        case types.SET_TOP_ERROR_MESSAGE:
+            return {
+                ...state,
+                topMessage: {
+                    show: true,
+                    message: action.topMessage,
+                    error: true,
+                }
             };
         case types.CLEAR_TOP_MESSAGE:
             return {
                 ...state,
-                isShowTopMessage: false,
+                topMessage: {
+                    show: false,
+                    message: state.topMessage.message,
+                    error: state.topMessage.error,
+                }
             };
         default:
             return state;

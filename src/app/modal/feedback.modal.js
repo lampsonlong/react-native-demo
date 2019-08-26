@@ -62,8 +62,9 @@ class FeedbackModal extends Component {
      * @returns {*}
      */
     render() {
-        const {topMessage, isShowTopMessage} = this.props.global;
-        if (isShowTopMessage) {
+        const {topMessage} = this.props.global;
+        console.log(topMessage);
+        if (topMessage.show) {
             console.log('执行动画效果');
             this.runAnimate();
 
@@ -74,9 +75,9 @@ class FeedbackModal extends Component {
         // 显示模态框
         return (
             <Animated.View style={[styles.modalContainer, {top: this.state.topValue}]}>
-                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#1530FF', '#7745FF']} style={styles.lgContainer}>
+                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[topMessage.error ? '#D63838' : '#1530FF', topMessage.error ? '#D6713E' : '#7745FF']} style={styles.lgContainer}>
                     <View style={styles.container}>
-                        <Text style={styles.context}>{topMessage}</Text>
+                        <Text style={styles.context}>{topMessage.message}</Text>
                     </View>
                 </LinearGradient>
             </Animated.View>

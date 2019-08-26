@@ -4,7 +4,6 @@ import {View, Text, Picker} from 'react-native';
 import PhoneVerificationComponent from '../../components/phone-verification.component';
 import LongButtonComponent from '../../components/long-button.component';
 import PickerComponent from '../../components/picker.component';
-import ActivityIndicatorComponent from '../../components/activity-indicator.component';
 import {bindActionCreators} from 'redux';
 import * as globalAction from '../../actions/global.action';
 import PropTypes from 'prop-types';
@@ -30,12 +29,19 @@ class Tabs3Page extends React.Component {
         {id: '4', value: '清瘦'},
     ];
 
+    switch = false;
     /*-----Constructor Part-----*/
     /*-----Lifecycle Part-----*/
     /*-----Methods Part-----*/
     showTopMessage = () => {
         const globalActions = this.props.globalActions;
-        globalActions.setTopMessage('已发送短信验证码');
+        if (this.switch) {
+            globalActions.setTopMessage('验证成功');
+        } else {
+            globalActions.setTopErrorMessage('验证失败');
+        }
+
+        this.switch = !this.switch;
     };
 
     isValid = (status, value) => {
@@ -46,8 +52,6 @@ class Tabs3Page extends React.Component {
     };
 
     submit = () => {
-        console.log('submit', this.state.verification);
-
         this.setState({
             loading: true,
         });
@@ -59,11 +63,10 @@ class Tabs3Page extends React.Component {
             });
 
             this.showTopMessage();
-        }, 2000);
+        }, 500);
     };
 
     showPicker = () => {
-        console.log('showPicker');
         this.setState({
             pickerVisible: true,
         });

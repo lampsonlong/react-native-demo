@@ -104,6 +104,13 @@ export function setTopMessage(topMessage) {
     };
 }
 
+export function setTopErrorMessage(topMessage) {
+    return {
+        type: types.SET_TOP_ERROR_MESSAGE,
+        topMessage,
+    };
+}
+
 export function clearTopMessage() {
     return {
         type: types.CLEAR_TOP_MESSAGE,
