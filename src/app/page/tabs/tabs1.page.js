@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import LongButtonComponent from '../../components/long-button.component';
 import ShortButtonComponent from '../../components/short-button.component';
 import TipsBarComponent from "../../components/tips-bar.component";
+import NextButtonComponent from "../../components/next-button.component";
 
 const propTypes = {
     globalAction: PropTypes.object,
@@ -62,6 +63,7 @@ class Tabs1Page extends React.Component {
                 <CardComponent/>
                 <ShortButtonComponent onPress={() => this.submit()} title="提交" disabled={false} loading={this.state.loading} />
                 <LongButtonComponent onPress={() => this.showTopMessage()} title="显示后端反馈" disabled={false} />
+                <NextButtonComponent onPress={() => this.submit()} title="提交" disabled={false} loading={this.state.loading} />
             </View>
         );
     }
