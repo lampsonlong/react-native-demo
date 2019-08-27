@@ -1,21 +1,29 @@
-import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
+import {createBottomTabNavigator, createStackNavigator, createDrawerNavigator, DrawerItems, SafeAreaView} from "react-navigation";
 import store from '../store/store';
-import {Text} from "react-native";
+import {Text, ScrollView, View, Image} from "react-native";
 import React from "react";
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import DrawMenuComponent from '../components/draw-menu.component';
 
 import Tabs1Page from '../page/tabs/tabs1.page';
 import Tabs2Page from '../page/tabs/tabs2.page';
 import Tabs3Page from '../page/tabs/tabs3.page';
 import Tabs4Page from '../page/tabs/tabs4.page';
 
-const TabsStack = createBottomTabNavigator({
+const TabsStack = createDrawerNavigator({
     Tabs1: Tabs1Page,
     Tabs2: Tabs2Page,
     Tabs3: Tabs3Page,
     Tabs4: Tabs4Page,
 }, {
     initialRouteName: 'Tabs1',
+    contentComponent: DrawMenuComponent,
+    contentOptions: {
+        activeBackgroundColor: 'rgba(0, 0, 0, 0.1)',
+        activeTintColor: '#fff',
+        inactiveTintColor: '#fff',
+    },
+
     defaultNavigationOptions: ({navigation}) => ({
         tabBarIcon: ({focusd, tintColor}) => {
             const {routeName} = navigation.state;
